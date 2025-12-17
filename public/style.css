@@ -198,3 +198,29 @@ main {
   margin: 30px auto;   /* aumenta topo/baixo e centraliza mais */
   padding: 0 25px;      /* respiro lateral dentro do main */
 }
+header {
+  background: #6c3dbf;
+  color: white;
+  padding: 15px 25px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+header .logo-area {
+  grid-column: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+header .logo-area img {
+  height: 32px;   /* ajusta o tamanho da patinha aqui */
+  mix-blend-mode: multiply;
+}
+
+header .logo-area span {
+  font-size: 22px;
+  font-weight: bold;
+}
