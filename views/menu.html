@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu - Adoção de Pets</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-area">
+      <span>Adoção de Pets</span>
+    </div>
+    <nav>
+      <a href="/menu">Menu</a>
+      <a href="/logout">Sair</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- CARD DE BOAS-VINDAS -->
+    <div class="card-form">
+      <h1>Menu do sistema</h1>
+      <p class="subtitulo">
+        Bem-vindo, <strong><%= usuario %></strong>.
+      </p>
+      <p class="subtitulo">
+        Último acesso: <strong><%= ultimoAcesso %></strong>
+      </p>
+    </div>
+
+      <!-- CARDS DAS AÇÕES SEPARADOS -->
+    <div class="card-actions-grid">
+      <div class="card-action">
+        <h2>Interessados</h2>
+        <p class="subtitulo">Cadastre pessoas interessadas em adotar um pet.</p>
+        <a class="btn-link" href="/interessados">Ir para interessados</a>
+      </div>
+
+      <div class="card-action">
+        <h2>Pets</h2>
+        <p class="subtitulo">Cadastre os pets disponíveis para adoção.</p>
+        <a class="btn-link" href="/pets">Ir para pets</a>
+      </div>
+
+      <div class="card-action">
+        <h2>Adoções</h2>
+        <p class="subtitulo">Registre o desejo de adoção de um pet.</p>
+        <a class="btn-link" href="/adocoes">Ir para adoções</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    Sistema de Adoção de Pets - Exame Final Programação para Internet
+  </footer>
+</body>
+</html>
+

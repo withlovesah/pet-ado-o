@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Desejo de Adoção - Adoção de Pets</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-area">
+      <span>Adoção de Pets</span>
+    </div>
+    <nav>
+      <a href="/menu">Menu</a>
+      <a href="/logout">Sair</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="grid-cadastro">
+      <!-- ESQUERDA: LISTA DE DESEJOS (PRINCIPAL) -->
+      <div class="card-form">
+        <h1>Desejos de adoção</h1>
+        <p class="subtitulo">Veja quem já manifestou interesse em adotar um pet.</p>
+
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Interessado</th>
+            <th>Pet</th>
+            <th>Data do desejo</th>
+          </tr>
+          <% adocoes.forEach(function(a) { %>
+            <tr>
+              <td><%= a.id %></td>
+              <td><%= a.interessadoNome %></td>
+              <td><%= a.petNome %></td>
+              <td><%= a.data %></td>
+            </tr>
+          <% }); %>
+        </table>
+
+        <div class="actions">
+          <a href="/menu">Voltar ao menu</a>
+        </div>
+      </div>
+
+      <!-- DIREITA: FORMULÁRIO MENOR -->
+      <div class="card-form">
+        <h2>Novo desejo de adoção</h2>
+        <p class="subtitulo">Selecione o interessado e o pet.</p>
+
+        <% if (erro) { %>
+          <div class="erro"><%= erro %></div>
+        <% } %>
+
+        <form method="POST" action="/adocoes">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="interessadoId">Interessado</label>
+              <select id="interessadoId" name="interessadoId">
+                <option value="">-- Selecione --</option>
+                <% interessados.forEach(function(i) { %>
+                  <option value="<%= i.id %>"><%= i.nome %></option>
+                <% }); %>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="petId">Pet</label>
+              <select id="petId" name="petId">
+                <option value="">-- Selecione --</option>
+                <% pets.forEach(function(p) { %>
+                  <option value="<%= p.id %>"><%= p.nome %></option>
+                <% }); %>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Registrar desejo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Sistema de Adoção de Pets - Exame Final Programação para Internet
+  </footer>
+</body>
+</html>

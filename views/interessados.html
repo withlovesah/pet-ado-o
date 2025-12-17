@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Interessados - Adoção de Pets</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-area">
+      <span>Adoção de Pets</span>
+    </div>
+    <nav>
+      <a href="/menu">Menu</a>
+      <a href="/logout">Sair</a>
+    </nav>
+  </header>
+
+    <main>
+    <div class="grid-cadastro">
+      <!-- LADO ESQUERDO: FORMULÁRIO MAIOR -->
+      <div class="card-form">
+        <h1>Cadastro de Interessados</h1>
+        <p class="subtitulo">Informe os dados da pessoa interessada em adotar um pet.</p>
+
+        <% if (erro) { %>
+          <div class="erro"><%= erro %></div>
+        <% } %>
+
+        <form method="POST" action="/interessados">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome completo</label>
+              <input type="text" id="nome" name="nome" placeholder="Ex: Ana Silva">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="exemplo@dominio.com">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telefone">Telefone</label>
+              <input type="text" id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Salvar interessado</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- LADO DIREITO: LISTA MENOR -->
+      <div class="card-form">
+        <h2>Lista de Interessados</h2>
+
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+          </tr>
+          <% interessados.forEach(function(i) { %>
+            <tr>
+              <td><%= i.id %></td>
+              <td><%= i.nome %></td>
+            </tr>
+          <% }); %>
+        </table>
+
+        <div class="actions">
+          <a href="/interessados">Novo interessado</a>
+          <a href="/menu">Voltar ao menu</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <footer>
+    Sistema de Adoção de Pets - Exame Final Programação para Internet
+  </footer>
+</body>
+</html>
+
